@@ -25,26 +25,30 @@ snippet vf
 	var ${1:function_name} = function $1(${2}) {
 		${0}
 	};
+# jQuery Ready fn
+snippet $()
+	$(function() {
+		${0}
+	});
 # Immediate function
 snippet ()
 	(function(${1}) {
 		${0}
 	})(${2});
 # self-defining function
-snippet sdf
-	var ${1:function_name} = function (${2:argument}) {
-		${3}
-
-		$1 = function ($2) {
-			${0}
-		};
-	};
-
-# Flow control
-
 # if
 snippet if
 	if (${1:true}) {
+		${0}
+	}
+# else
+snippet el
+	else {
+		${0}
+	}
+# else
+snippet eli
+	else if (${1:true}) {
 		${0}
 	}
 # if ... else
@@ -101,7 +105,14 @@ snippet ret
 # for loop
 snippet for
 	for (var ${2:i} = 0, l = ${1:arr}.length; $2 < l; $2++) {
-		var ${3:v} = $1[$2];${0:}
+		var ${3:curr} = $1[$2];${0:}
+	}
+# forin
+snippet forin
+	for (var ${2:key} in ${1:obj}) {
+		if ($1.hasOwnProperty($2)) {
+			$1[$2]${0:}
+		}
 	}
 # Reversed for loop
 snippet forr
@@ -135,29 +146,6 @@ snippet :f
 snippet has
 	hasOwnProperty(${0})
 # singleton
-snippet sing
-	function ${1:Singleton} (${2:argument}) {
-		// the cached instance
-		var instance;
-
-		// rewrite the constructor
-		$1 = function $1($2) {
-			return instance;
-		};
-
-		// carry over the prototype properties
-		$1.prototype = this;
-
-		// the instance
-		instance = new $1();
-
-		// reset the constructor pointer
-		instance.constructor = $1;
-
-		${0}
-
-		return instance;
-	}
 # Crockford's object function
 snippet obj
 	function object(o) {
