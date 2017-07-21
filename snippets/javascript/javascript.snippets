@@ -11,20 +11,18 @@ snippet fun
 		${0}
 	}
 # Anonymous Function
-snippet f "" w
+snippet f
 	function(${1}) {
 		${0}
 	}
-# Anonymous Function assigned to variable
-snippet vaf
-	var ${1:function_name} = function(${2}) {
-		${0}
-	};
 # Function assigned to variable
 snippet vf
-	var ${1:function_name} = function $1(${2}) {
+	var ${1:function_name} = function (${2}) {
 		${0}
-	};
+	}
+# jQuery Select DOM
+snippet $
+	$('${1}')${0}
 # jQuery Ready fn
 snippet $()
 	$(function() {
@@ -32,13 +30,13 @@ snippet $()
 	});
 # Immediate function
 snippet ()
-	(function(${1}) {
+	;(function(${1}) {
 		${0}
 	})(${2});
 # self-defining function
 # if
 snippet if
-	if (${1:true}) {
+	if (${1}) {
 		${0}
 	}
 # else
@@ -104,20 +102,20 @@ snippet ret
 
 # for loop
 snippet for
-	for (var ${2:i} = 0, l = ${1:arr}.length; $2 < l; $2++) {
-		var ${3:curr} = $1[$2];${0:}
+	for (var ${2:i} = 0; $2 < ${1:arr}.length; $2++) {
+		var ${3:curr} = $1[$2]${0}
 	}
 # forin
 snippet forin
 	for (var ${2:key} in ${1:obj}) {
-		if ($1.hasOwnProperty($2)) {
-			$1[$2]${0:}
-		}
+		if (!$1.hasOwnProperty($2)) continue
+
+		$1[$2]${0:}
 	}
 # Reversed for loop
 snippet forr
 	for (var ${2:i} = ${1:arr}.length - 1; $2 >= 0; $2--) {
-		var ${3:v} = $1[$2];${0:}
+		var ${3:v} = $1[$2]${0:}
 	}
 # While loop
 snippet wh
@@ -139,9 +137,9 @@ snippet fori
 
 # Object Method
 snippet :f
-	${1:method_name}: function (${2:attribute}) {
-		${3}
-	},
+	${1:method_name}: function(${2:attribute}) {
+		${0}
+	}${3:,}
 # hasOwnProperty
 snippet has
 	hasOwnProperty(${0})
@@ -196,9 +194,9 @@ snippet prop
 # docstring
 snippet /**
 	/**
-	 * ${0:description}
-	 *
-	 */
+	* ${0:description}
+	*
+	*/
 snippet @par
 	@param {${1:type}} ${2:name} ${0:description}
 snippet @ret
@@ -207,10 +205,10 @@ snippet @ret
 
 # JSON.parse
 snippet jsonp
-	JSON.parse(${0:jstr});
+	JSON.parse(${0:jstr})
 # JSON.stringify
 snippet jsons
-	JSON.stringify(${0:object});
+	JSON.stringify(${0:object})
 
 # DOM selectors
 
@@ -235,39 +233,33 @@ snippet qsa
 
 # Debugging
 snippet de
-	debugger;
-# console.log
+	debugger
+# console.x
 snippet cl
-	console.log(${0});
-# console.debug
+	console.log(${0})
 snippet cd
-	console.debug(${0});
-# console.error
+	console.debug(${0})
 snippet ce
-	console.error(${0});
-# console.trace
+	console.error(${0})
 snippet ct
-	console.trace(${0:label});
-# console.time
+	console.trace(${0:label})
 snippet ctime
-	console.time(${0:label});
-# console.assert
+	console.time(${0:label})
 snippet ca
-	console.assert(${1:expression}, ${0:obj});
-# console.dir
+	console.assert(${1:expression}, ${0:obj})
 snippet cdir
-	console.dir(${0:obj});
+	console.dir(${0:obj})
 
 # Misc
 
 # 'use strict';
 snippet us
-	'use strict';
+	'use strict'
 
 # setTimeout function
 snippet timeout
-	setTimeout(function () {${0}}${2}, ${1:10});
+	setTimeout(function () {${1}}${2}, ${1:10})
 
 # setInterval function
 snippet interval
-	setInterval(function () {${0}}${2}, ${1:10});
+	setInterval(function () {${0}}${2}, ${1:10})
