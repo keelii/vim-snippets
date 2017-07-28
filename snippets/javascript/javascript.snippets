@@ -263,3 +263,11 @@ snippet timeout
 # setInterval function
 snippet interval
 	setInterval(function () {${0}}${2}, ${1:10})
+
+# jdf_ui
+snippet jdf_ui
+	require('JDF_UI/${1:pager}/1.0.0/$1')${0}
+snippet jdf_unit
+	require('JDF_UNIT/${1:trimPath}/1.0.0/$1')${0}
+snippet debug
+	if (/debug=${1:sign}/.test(location.href)) {${0}}
