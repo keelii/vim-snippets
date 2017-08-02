@@ -194,9 +194,11 @@ snippet prop
 # docstring
 snippet /**
 	/**
-	* ${0:description}
-	*
-	*/
+	 * ${1:description}
+	 *
+	 * @par${0}
+	 * @ret${0}
+	 */
 snippet @par
 	@param {${1:type}} ${2:name} ${0:description}
 snippet @ret
