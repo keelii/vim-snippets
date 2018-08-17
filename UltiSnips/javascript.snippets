@@ -152,9 +152,39 @@ function`!p snip.rv = space_before_function_paren(snip)`($1) {
 endsnippet
 
 snippet cl
-function ${1:fun_name}($2) {
-	${VISUAL}$0
-}
+console.log(${1:1024})$0
+endsnippet
+
+snippet ce
+console.error(${1:1024})$0
+endsnippet
+
+snippet ci
+console.info(${1:1024})$0
+endsnippet
+
+snippet bc "block comment with visual selected"
+/*
+${VISUAL}
+*/
+endsnippet
+
+snippet sc "single line comment" b
+`!p
+import re
+lines = snip.v.text.split('\n')
+result = ''
+detected = False
+indent_spaces = ''
+for line in lines:
+	if line.strip():
+		if not detected:
+			detected = True
+			indent_spaces = re.findall(r'\s', line)
+		prefix_space = ''.join(indent_spaces)
+		result += '{0}// {1}\n'.format(prefix_space, line.replace(prefix_space, '', 1))
+snip.rv = result
+`$0
 endsnippet
 
 # vim:ft=snippets:
