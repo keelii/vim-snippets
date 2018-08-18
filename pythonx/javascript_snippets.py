@@ -70,3 +70,10 @@ def comment(snip, COMMENT_SIGN):
     else:
         return ''
 
+def comment_inline(snip, START="/* ", END=" */"):
+    text = snip.v.text
+    if text.startswith(START):
+        return text.replace(START, '', 1).replace(END, '', 1)
+    else:
+        return START + text + END
+

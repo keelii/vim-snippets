@@ -18,7 +18,7 @@ priority -50
 
 global !p
 from javascript_snippets import (
-	semi, space_before_function_paren, keyword_spacing, comment
+	semi, space_before_function_paren, keyword_spacing, comment, comment_inline
 )
 endglobal
 
@@ -151,20 +151,24 @@ function`!p snip.rv = space_before_function_paren(snip)`($1) {
 }
 endsnippet
 
-snippet log
+snippet Js "JSON.stringify(...)" i
+JSON.stringify($0)
+endsnippet
+
+snippet Jp "JSON.parse(...)" i
+JSON.parse($0)
+endsnippet
+
+snippet log "Log the VISUAL selecton" i
 console.log(${VISUAL})$0
 endsnippet
 
-snippet cl
+snippet cl "console.log(...)" i
 console.log(${1:1024})$0
 endsnippet
 
-snippet ce
+snippet ce "console.error(...)" i
 console.error(${1:1024})$0
-endsnippet
-
-snippet ci
-console.info(${1:1024})$0
 endsnippet
 
 snippet bc "block comment with visual selected"
@@ -176,6 +180,12 @@ endsnippet
 snippet c "Toggle comment every single line"
 `!p
 snip.rv = comment(snip, '// ')
+`$0
+endsnippet
+
+snippet ci "Toggle comment inline." i
+`!p
+snip.rv = comment_inline(snip, START="/* ", END=" */")
 `$0
 endsnippet
 

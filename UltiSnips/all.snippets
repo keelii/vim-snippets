@@ -110,6 +110,18 @@ endsnippet
 ##################
 #  My own favor  #
 ##################
+snippet upper "Convert selection to uppercase" i
+`!p snip.rv = snip.v.text.upper()`
+endsnippet
+
+snippet lower "Convert selection to lowercase" i
+`!p snip.rv = snip.v.text.lower()`
+endsnippet
+
+snippet unicode "Convert selection to unicode" i
+`!p snip.rv = snip.v.text.encode('unicode_escape')`
+endsnippet
+
 
 
 # vim:ft=snippets:
