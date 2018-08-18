@@ -18,7 +18,7 @@ priority -50
 
 global !p
 from javascript_snippets import (
-	semi, space_before_function_paren, keyword_spacing
+	semi, space_before_function_paren, keyword_spacing, comment
 )
 endglobal
 
@@ -151,6 +151,10 @@ function`!p snip.rv = space_before_function_paren(snip)`($1) {
 }
 endsnippet
 
+snippet log
+console.log(${VISUAL})$0
+endsnippet
+
 snippet cl
 console.log(${1:1024})$0
 endsnippet
@@ -169,21 +173,9 @@ ${VISUAL}
 */
 endsnippet
 
-snippet sc "single line comment" b
+snippet c "Toggle comment every single line"
 `!p
-import re
-lines = snip.v.text.split('\n')
-result = ''
-detected = False
-indent_spaces = ''
-for line in lines:
-	if line.strip():
-		if not detected:
-			detected = True
-			indent_spaces = re.findall(r'\s', line)
-		prefix_space = ''.join(indent_spaces)
-		result += '{0}// {1}\n'.format(prefix_space, line.replace(prefix_space, '', 1))
-snip.rv = result
+snip.rv = comment(snip, '// ')
 `$0
 endsnippet
 
