@@ -260,23 +260,21 @@ endsnippet
 snippet html "HTML basic structure" b
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<title>${1:`!p snip.rv = snip.basename.replace('-', ' ').capitalize()`}</title>
-	</head>
-	<body>
-		${0:body}
-	</body>
+<head>
+	<meta charset="utf-8">
+	<title>${1:`!p snip.rv = snip.basename.replace('-', ' ').capitalize()`}</title>
+</head>
+<body>
+	${0:body}
+</body>
 </html>
 endsnippet
 
 snippet htmll "HTML basic structure with the lang attribute" b
 <!DOCTYPE html>
-<html lang="${1:es}">
+<html lang="${1:en}">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
 		<title>${2:`!p snip.rv = snip.basename.replace('-', ' ').capitalize()`}</title>
 	</head>
 	<body>
@@ -297,8 +295,9 @@ snippet img "<img>"
 <img src="$1" alt="$2">
 endsnippet
 
-snippet input "Input with Label" w
-<label for="${2:${1/[[:alpha:]]+|( )/(?1:_:\L$0)/g}}">$1</label><input type="${3:text/submit/hidden/button}" name="${4:$2}" value="$5"${6: id="${7:$2}"}`!p x(snip)`>
+snippet inputl "Input with Label" w
+<label for="${2:${1/[[:alpha:]]+|( )/(?1:_:\L$0)/g}}">$1</label>
+<input type="${3:text/submit/hidden/button}" name="${4:$2}" value="$5"${6: id="${7:$2}"}`!p x(snip)`>
 endsnippet
 
 snippet input "HTML <input>" w
@@ -326,7 +325,7 @@ snippet li "list item" w
 endsnippet
 
 snippet link "HTML <link>" w
-<link rel="${1:stylesheet}" href="${2:/css/master.css}" type="text/css" media="${3:screen}" title="${4:no title}" charset="${5:utf-8}"`!p x(snip)`>
+<link rel="${1:stylesheet}" href="${2:main.css}" type="text/css"`!p x(snip)`>
 endsnippet
 
 snippet mailto "HTML <a mailto: >" w
@@ -422,7 +421,7 @@ snippet scriptsrc "HTML <script src...>" w
 endsnippet
 
 snippet select "Select Box" w
-<select name="${1:some_name}" id="${2:$1}"${3:${4: multiple}${5: size="${6:1}"}}>
+<select name="${1:some_name}" id="${2:$1}">
 	${0:${VISUAL}}
 </select>
 endsnippet
@@ -464,6 +463,14 @@ endsnippet
 snippet table "HTML <table>" w
 <table>
 	${0:${VISUAL}}
+</table>
+endsnippet
+
+snippet table+ "HTML <table>" w
+<table>
+	<thead>$1</thead>
+	<tbody>$2</tbody>
+	<tfoot>$0</tfoot>
 </table>
 endsnippet
 
