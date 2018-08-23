@@ -151,6 +151,16 @@ function`!p snip.rv = space_before_function_paren(snip)`($1) {
 }
 endsnippet
 
+snippet "\(\)" "IEEEF" r
+(function($1) {
+    $0
+})(${1:window});
+endsnippet
+
+snippet al "alert(...)" i
+alert(${1:1024})$0
+endsnippet
+
 snippet Js "JSON.stringify(...)" i
 JSON.stringify($0)
 endsnippet
