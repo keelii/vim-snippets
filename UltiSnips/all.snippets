@@ -110,18 +110,29 @@ endsnippet
 ##################
 #  My own favor  #
 ##################
+snippet upper "Convert selection to uppercase" i
+`!p snip.rv = snip.v.text.upper()`
+endsnippet
+
+snippet lower "Convert selection to lowercase" i
+`!p snip.rv = snip.v.text.lower()`
+endsnippet
+
+snippet unicode "Convert selection to unicode" i
+`!p snip.rv = snip.v.text.encode('unicode_escape')`
+endsnippet
 
 snippet "([^\s].*)\.ul" "Uppercase Line(postfix)" r
 `!p snip.rv = match.group(1).upper()`$0
 endsnippet
-snippet "([^\s]\w+)\.u" "Uppercase world(postfix)" r
+snippet "([^\s]\w+)\.u" "Uppercase prev word(postfix)" r
 `!p snip.rv = match.group(1).upper()`$0
 endsnippet
 
 snippet "([^\s].*)\.ll" "Lowercase Line(postfix)" r
 `!p snip.rv = match.group(1).lower()`$0
 endsnippet
-snippet "([^\s]\w+)\.l" "Lowercase world(postfix)" r
+snippet "([^\s]\w+)\.l" "Lowercase prev word(postfix)" r
 `!p snip.rv = match.group(1).lower()`$0
 endsnippet
 
