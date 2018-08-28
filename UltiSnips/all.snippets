@@ -111,5 +111,20 @@ endsnippet
 #  My own favor  #
 ##################
 
+snippet "([^\s].*)\.ul" "Uppercase Line(postfix)" r
+`!p snip.rv = match.group(1).upper()`$0
+endsnippet
+snippet "([^\s]\w+)\.u" "Uppercase world(postfix)" r
+`!p snip.rv = match.group(1).upper()`$0
+endsnippet
+
+snippet "([^\s].*)\.ll" "Lowercase Line(postfix)" r
+`!p snip.rv = match.group(1).lower()`$0
+endsnippet
+snippet "([^\s]\w+)\.l" "Lowercase world(postfix)" r
+`!p snip.rv = match.group(1).lower()`$0
+endsnippet
+
+
 
 # vim:ft=snippets:
