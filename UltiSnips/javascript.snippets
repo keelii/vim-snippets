@@ -169,8 +169,8 @@ snippet Jp "JSON.parse(...)" i
 JSON.parse($0)
 endsnippet
 
-snippet log "Log the VISUAL selecton" i
-console.log(${VISUAL})$0
+snippet "([^\s]\S+)\.log" "console.log(postfix)" r
+console.log(`!p snip.rv = match.group(1)`)$0
 endsnippet
 
 snippet cl "console.log(...)" i
