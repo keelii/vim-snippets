@@ -25,8 +25,12 @@ endglobal
 ###########################################################################
 #                            TextMate Snippets                            #
 ###########################################################################
-snippet get "Get Elements"
-getElement${1/(T)|(C)|.*/(?1:s)(?2:s)/}By${1:T}${1/(T)|(I)|(C).*/(?1:agName)(?2:d)(?3:lassName)/}('$2')
+snippet get "Get Elements" i
+document.getElement${1/(T)|(C)|.*/(?1:s)(?2:s)/}By${1:T}${1/(T)|(I)|(C).*/(?1:agName)(?2:d)(?3:lassName)/}('$2')
+endsnippet
+
+snippet query "Query selector" i
+document.querySelector${1:All}('${2:el}')
 endsnippet
 
 snippet '':f "object method string"
@@ -86,10 +90,16 @@ snippet ;fe "Minify safe iife"
 }(${2}))
 endsnippet
 
-snippet timeout "setTimeout function"
-setTimeout(function`!p snip.rv = space_before_function_paren(snip)`() {
+snippet interval "setTimeout function"
+setInterval(function() {
 	${VISUAL}$0
-}${2:.bind(${3:this})}, ${1:10})`!p snip.rv = semi(snip)`
+}, ${1:1000})
+endsnippet
+
+snippet timeout "setTimeout function"
+setTimeout(function() {
+	${VISUAL}$0
+}, ${1:1000})
 endsnippet
 
 snippet fi "for prop in obj using hasOwnProperty" b
@@ -148,6 +158,19 @@ endsnippet
 snippet f
 function`!p snip.rv = space_before_function_paren(snip)`($1) {
 	${VISUAL}$0
+}
+endsnippet
+
+snippet forin
+for (${3:var} ${1:key} in ${2:obj}) {
+	if (!$2.hasOwnProperty($1)) continue
+	$0
+}
+endsnippet
+
+snippet for
+for (${3:var} ${2:i} = 0; ${2:i} < ${1:Things}.length; $2++) {
+	$3 item = $1[$2]$0
 }
 endsnippet
 

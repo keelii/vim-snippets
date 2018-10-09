@@ -159,8 +159,8 @@ snippet div "<div>" w
 </div>
 endsnippet
 
-snippet div# "<div> with ID & class" w
-<div`!p snip.rv=' id="' if t[1] else ""`${1:name}`!p snip.rv = '"' if t[1] else ""``!p snip.rv=' class="' if t[2] else ""`${2:name}`!p snip.rv = '"' if t[2] else ""`>
+snippet div# "<div> with ID" w
+<div id="${1:name}">
 	${0:${VISUAL}}
 </div>
 endsnippet
@@ -327,7 +327,7 @@ snippet li "list item" w
 endsnippet
 
 snippet link "HTML <link>" w
-<link rel="${1:stylesheet}" href="${2:main.css}" type="text/css"`!p x(snip)`>
+<link rel="stylesheet" href="${1:main.css}" type="text/css"`!p x(snip)`>
 endsnippet
 
 snippet mailto "HTML <a mailto: >" w
@@ -418,8 +418,8 @@ snippet script "HTML <script>" w
 </script>
 endsnippet
 
-snippet scriptsrc "HTML <script src...>" w
-<script src="$1"</script>
+snippet script:src "HTML <script src...>" w
+<script src="$1"></script>
 endsnippet
 
 snippet select "Select Box" w
