@@ -1,5 +1,11 @@
 priority -50
 
+global !p
+from javascript_snippets import (
+	comment, comment_inline
+)
+endglobal
+
 snippet p "padding"
 padding: ${1:0};$0
 endsnippet
@@ -546,6 +552,18 @@ endsnippet
 
 snippet z "z-index: index (z)"
 z-index: $1;$0
+endsnippet
+
+snippet c "Toggle comment every single line"
+`!p
+snip.rv = comment(snip, START='// ', END='')
+`$0
+endsnippet
+
+snippet ci "Toggle comment inline." i
+`!p
+snip.rv = comment_inline(snip, START="/* ", END=" */")
+`$0
 endsnippet
 
 # vim:ft=snippets:
